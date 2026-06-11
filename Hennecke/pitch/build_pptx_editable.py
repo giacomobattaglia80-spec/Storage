@@ -125,7 +125,7 @@ para(tb(s, 120, 832, 1360, 24), "CONFIDENTIAL — For Board discussion only. Not
 # =====================================================================
 s = slide()
 header(s, "HENNECKE-OMS S.p.A. — Investment opportunity",
-       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 6")
+       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 7")
 # left card
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 card_title(s, 50, 125, 720, "Company at a glance", BLUE)
@@ -179,7 +179,7 @@ bullets(tfd, [
 # =====================================================================
 s = slide()
 header(s, "Financial profile 2023–2024",
-       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 6")
+       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 7")
 # left card with native chart
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 para(tb(s, 74, 140, 500, 28), "2023 vs 2024 (€ million)", size=17, color=BLUE, bold=True, first=True)
@@ -238,11 +238,47 @@ para(tb(s, 50, 866, 900, 20), "Source: Coface Full Report (filed FY2023–2024).
      size=9.5, color=MUTED, first=True)
 
 # =====================================================================
+# SLIDE 2a2 — P&L COST STRUCTURE (recap bar)
+# =====================================================================
+s = slide()
+header(s, "P&L recap \u2014 cost structure",
+       "Revenue split into EBITDA and cost categories (cost bar)", "3 / 7")
+BARX, BARW, top, PPC = 600, 150, 168, 6.0
+segs = [
+    ("EBITDA", 10, "84BD00", INK),
+    ("Materials", 51, "F2A100", INK),
+    ("Personnel", 18, "D9531E", WHITE),
+    ("Transport & utilities", 6, "8C5A2B", WHITE),
+    ("Maintenance", 3, "BFBFBF", INK),
+    ("Overheads", 11, "243746", WHITE),
+]
+y = top
+for name, pct, color, txtcol in segs:
+    h = pct*PPC
+    rect(s, BARX, y, BARW, h, fill=color)
+    para(tb(s, BARX, y, BARW, h, "m"), f"{pct}%", size=(15 if h>=30 else 10), color=txtcol, bold=True, align="c", first=True)
+    lab = tb(s, 300, y, 250, h, "m")
+    para(lab, name, size=(15 if h>=40 else 12), color=INK, align="r", first=True)
+    rect(s, 555, y+h/2.0, BARX-555, 1, fill="C9D2DD")
+    y += h
+para(tb(s, BARX-40, y+8, BARW+80, 24), "Cost bar", size=13, color=GRAY, bold=True, align="c", first=True)
+# right recap panel
+rect(s, 950, 160, 600, 600, fill=LIGHT, line=BORDER)
+card_title(s, 950, 160, 600, "Cost structure \u2014 recap", BLUE)
+tfp = tb(s, 974, 230, 552, 460)
+rows = [("84BD00","EBITDA","10%"),("F2A100","Materials","51%"),("D9531E","Personnel","18%"),
+        ("8C5A2B","Transport & utilities","6%"),("BFBFBF","Maintenance","3%"),("243746","Overheads","11%")]
+for i,(c,n,pc) in enumerate(rows):
+    para(tfp, [("\u25A0  ", False, c, 17), (n, True, INK, 15), ("      "+pc, False, GRAY, 15)], first=(i==0), after=13)
+para(tfp, [("EBITDA margin 10%", True, GREEN, 14), ("; materials are the dominant cost at 51% \u2014 the key lever on profitability.", False, TXT, 14)], after=6)
+para(tb(s, 50, 866, 1300, 20), "% of revenue / value of production, per the provided breakdown (sums to ~100% net of rounding).", size=9.5, color=MUTED, first=True)
+
+# =====================================================================
 # SLIDE 2b — CUSTOMER MAPPING (B2B end-markets)
 # =====================================================================
 s = slide()
 header(s, "Who buys from Hennecke — B2B customer map",
-       "Customers are industrial manufacturers that process polyurethane · by application", "3 / 6")
+       "Customers are industrial manufacturers that process polyurethane · by application", "4 / 7")
 
 def seg_card(x, y, w, h, title, desc, examples, accent=BLUE):
     rect(s, x, y, w, h, fill=WHITE, line=BORDER)
@@ -297,7 +333,7 @@ para(tb(s, 50, 866, 1300, 20),
 # =====================================================================
 s = slide()
 header(s, "Competitor map — PU machinery landscape",
-       "Qualitative positioning of the main players in the reference sector", "4 / 6")
+       "Qualitative positioning of the main players in the reference sector", "5 / 7")
 # --- plot frame ---
 rect(s, 120, 158, 880, 530, fill="FBFCFD", line=BORDER)
 PX0, PX1, PY0, PY1 = 150, 970, 190, 660  # data plot bounds (px)
@@ -360,7 +396,7 @@ para(tb(s, 50, 866, 1300, 20),
 # =====================================================================
 s = slide()
 header(s, "Tailwinds vs headwinds — what drives this business",
-       "Two silos: structural supports vs structural pressures, specific to a PU capital-goods model", "5 / 6")
+       "Two silos: structural supports vs structural pressures, specific to a PU capital-goods model", "6 / 7")
 # left silo — TAILWINDS
 rect(s, 50, 125, 740, 575, fill=WHITE, line=BORDER)
 card_title(s, 50, 125, 740, "TAILWINDS  ·  structural supports", GREEN)
@@ -404,7 +440,7 @@ para(tb(s, 50, 866, 1300, 20),
 # =====================================================================
 s = slide()
 header(s, "Investment thesis — value, risks & recommendation",
-       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "6 / 6")
+       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "7 / 7")
 # Column A — value creation
 rect(s, 50, 125, 480, 560, fill=WHITE, line=BORDER)
 card_title(s, 50, 125, 480, "Value-creation levers", GREEN)
