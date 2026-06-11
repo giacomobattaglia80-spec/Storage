@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Arial, Helvetica, sans-serif">
+  <defs><filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.16"/></filter></defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect width="1600" height="8" fill="#c8102e"/>
+  <text x="50" y="56" font-size="30" font-weight="bold" fill="#1f3a5f">KPI framework — growth, profitability &amp; cash</text>
+  <text x="50" y="86" font-size="15" fill="#666666">Commercial &amp; Operations levers underpinning the monitoring of the target's business</text>
+  <text x="1550" y="38" text-anchor="end" font-size="12" fill="#999999">CONFIDENTIAL · For Board discussion</text>
+
+  <!-- column headers -->
+  <rect x="210" y="118" width="430" height="46" rx="5" fill="#2e7d4f"/>
+  <text x="425" y="147" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">GROWTH</text>
+  <rect x="670" y="118" width="430" height="46" rx="5" fill="#1f3a5f"/>
+  <text x="885" y="147" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">PROFITABILITY</text>
+  <rect x="1130" y="118" width="430" height="46" rx="5" fill="#b8860b"/>
+  <text x="1345" y="147" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">CASH</text>
+
+  <!-- row labels -->
+  <text x="95" y="322" text-anchor="middle" font-size="17" font-weight="bold" fill="#c8102e" transform="rotate(-90 95 322)">COMMERCIAL</text>
+  <text x="95" y="607" text-anchor="middle" font-size="17" font-weight="bold" fill="#c8102e" transform="rotate(-90 95 607)">OPERATIONS</text>
+
+  <!-- ROW 1 cells -->
+  <g>
+    <rect x="210" y="178" width="430" height="288" rx="6" fill="#f7fbf8" stroke="#cfe6d8"/>
+    <rect x="670" y="178" width="430" height="288" rx="6" fill="#f5f8fc" stroke="#cdd8e6"/>
+    <rect x="1130" y="178" width="430" height="288" rx="6" fill="#fbf6ea" stroke="#ead9b0"/>
+  </g>
+  <g font-size="13" fill="#222222">
+    <!-- C x Growth -->
+    <text x="228" y="214">• Order intake &amp; Book-to-bill</text>
+    <text x="228" y="266">• Backlog (months of coverage)</text>
+    <text x="228" y="318">• Win rate / hit rate on bids</text>
+    <text x="228" y="370">• Aftermarket share %</text>
+    <text x="228" y="422">• Application &amp; geography mix</text>
+    <!-- C x Profitability -->
+    <text x="688" y="214">• Bid margin per project</text>
+    <text x="688" y="266">• % orders above margin threshold</text>
+    <text x="688" y="318">• Pricing waterfall / discount leakage</text>
+    <text x="688" y="370">• Price / Volume / Mix variance</text>
+    <text x="688" y="422">• Aftermarket vs new-machine margin</text>
+    <!-- C x Cash -->
+    <text x="1148" y="214">• Down-payment % at order</text>
+    <text x="1148" y="266">• Billing-milestone (SAL) adherence</text>
+    <text x="1148" y="318">• DSO (days sales outstanding)</text>
+    <text x="1148" y="370">• Advances ÷ WIP</text>
+    <text x="1148" y="422">• Penalties / performance bonds</text>
+  </g>
+
+  <!-- ROW 2 cells -->
+  <g>
+    <rect x="210" y="478" width="430" height="288" rx="6" fill="#f7fbf8" stroke="#cfe6d8"/>
+    <rect x="670" y="478" width="430" height="288" rx="6" fill="#f5f8fc" stroke="#cdd8e6"/>
+    <rect x="1130" y="478" width="430" height="288" rx="6" fill="#fbf6ea" stroke="#ead9b0"/>
+  </g>
+  <g font-size="13" fill="#222222">
+    <!-- O x Growth -->
+    <text x="228" y="514">• Capacity utilisation (shop floor &amp; eng.)</text>
+    <text x="228" y="566">• On-Time Delivery (OTD)</text>
+    <text x="228" y="618">• Order-to-delivery lead time</text>
+    <text x="228" y="670">• Throughput (machines completed)</text>
+    <text x="228" y="722">• NPD / time-to-market</text>
+    <!-- O x Profitability -->
+    <text x="688" y="514">• EAC vs budget / margin-at-completion</text>
+    <text x="688" y="566">• Productivity (std vs actual hrs) / OEE</text>
+    <text x="688" y="618">• Scrap · give-away · material yield</text>
+    <text x="688" y="670">• Material cost ratio &amp; PPV</text>
+    <text x="688" y="722">• Warranty cost · revenue/FTE</text>
+    <!-- O x Cash -->
+    <text x="1148" y="514">• DIO inventory (days)</text>
+    <text x="1148" y="566">• Unbilled WIP &amp; over/under-billing</text>
+    <text x="1148" y="618">• DPO (days payable)</text>
+    <text x="1148" y="670">• Cash Conversion Cycle</text>
+    <text x="1148" y="722">• Capex vs plan · FCF conversion</text>
+  </g>
+
+  <!-- bottom band -->
+  <rect x="50" y="784" width="1510" height="66" rx="6" fill="#eef2f7" stroke="#cdd8e6"/>
+  <text x="70" y="810" font-size="13" fill="#1f3a5f"><tspan font-weight="bold">Captive lens:</tspan> intercompany % (purchases/sales) &amp; stand-alone margin — to measure true profitability and prepare a possible carve-out.</text>
+  <text x="70" y="836" font-size="12.5" fill="#444"><tspan font-weight="bold">CFO cockpit (10):</tspan> order intake · book-to-bill · backlog · aftermarket % · normalised EBITDA · margin-at-completion · OTD · CCC · advances÷WIP · FCF conversion.</text>
+</svg>
