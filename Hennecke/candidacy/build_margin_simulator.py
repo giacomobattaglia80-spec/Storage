@@ -147,5 +147,85 @@ for i, t in enumerate(notes):
 
 ws.sheet_view.showGridLines = False
 ws.freeze_panes = "B4"
+
+# =====================================================================
+# SHEET 2 — mini CONTO ECONOMICO & STATO PATRIMONIALE (linked)
+# =====================================================================
+ws2 = wb.create_sheet("CE & SP")
+ws2.sheet_view.showGridLines = False
+for col, w in {"A": 2, "B": 44, "C": 14, "D": 3, "E": 44, "F": 14}.items():
+    ws2.column_dimensions[col].width = w
+MC = "'Margine Commessa'!"
+
+def c2(ref, val, *, f=None, fill=None, nf=None, align="left", border=True):
+    c = ws2[ref]; c.value = val
+    if f: c.font = f
+    if fill: c.fill = fill
+    if nf: c.number_format = nf
+    c.alignment = Alignment(horizontal=align, vertical="center")
+    if border: c.border = box
+    return c
+
+def band2(rng, text):
+    for row in ws2[rng]:
+        for cc in row:
+            cc.fill = hdr; cc.font = white; cc.alignment = Alignment(vertical="center")
+    ws2[rng.split(":")[0]].value = text
+    ws2.merge_cells(rng)
+
+ws2.merge_cells("B1:F1"); ws2["B1"] = "Mini Conto Economico & Stato Patrimoniale — collegati alla commessa"; ws2["B1"].font = title_f
+ws2.merge_cells("B2:F2"); ws2["B2"] = "Si aggiornano in automatico al variare degli input del foglio 'Margine Commessa'. Importi in € migliaia."; ws2["B2"].font = ital
+
+# ---------------- CONTO ECONOMICO (left) ----------------
+band2("B4:C4", "CONTO ECONOMICO — a commessa, cumulato a oggi")
+c2("B5", "A) Valore della produzione", f=bold)
+c2("B6", "   Ricavi (SAL fatturati)"); c2("C6", f"={MC}C9", nf=EUR, align="right")
+c2("B7", "   Variazione lavori in corso su ordinazione"); c2("C7", f"={MC}C22-{MC}C9", nf=EUR, align="right")
+c2("B8", "   Totale valore della produzione", f=bold); c2("C8", "=C6+C7", f=bold, nf=EUR, align="right", fill=greyfill)
+c2("B9", "B) Costi della produzione", f=bold)
+c2("B10", "   Costi di commessa (materie/servizi/personale)"); c2("C10", f"={MC}C7", nf=EUR, align="right")
+c2("B11", "   Accantonamento perdita attesa su commessa"); c2("C11", f"=IF({MC}C19<0,{MC}C24-{MC}C19,0)", nf=EUR, align="right")
+c2("B12", "   Totale costi della produzione", f=bold); c2("C12", "=C10+C11", f=bold, nf=EUR, align="right", fill=greyfill)
+c2("B13", "RISULTATO OPERATIVO (EBIT)", f=bold); c2("C13", "=C8-C12", f=bold, nf=EUR, align="right", fill=greyfill)
+c2("B14", "   EBIT margin %"); c2("C14", "=IF(C8=0,0,C13/C8)", nf=PCT, align="right")
+c2("B15", "RISULTATO D'ESERCIZIO (ante imposte)", f=bold); c2("C15", "=C13", f=bold, nf=EUR, align="right", fill=greyfill)
+
+# ---------------- STATO PATRIMONIALE (right) ----------------
+band2("E4:F4", "STATO PATRIMONIALE — a oggi")
+c2("E5", "INPUT: Capitale iniziale / PN (cassa apportata)"); c2("F5", 2000, f=bold, fill=inputfill, nf=EUR, align="right")
+c2("E6", "ATTIVO", f=bold)
+c2("E7", "   Cassa"); c2("F7", f"=F5+{MC}C10-{MC}C7", nf=EUR, align="right")
+c2("E8", "   Lavori in corso su ordinazione (WIP / contract asset)"); c2("F8", f"=MAX({MC}C22-{MC}C9,0)", nf=EUR, align="right")
+c2("E9", "   Crediti v/clienti"); c2("F9", f"=MAX({MC}C9-{MC}C10,0)", nf=EUR, align="right")
+c2("E10", "   TOTALE ATTIVO", f=bold); c2("F10", "=F7+F8+F9", f=bold, nf=EUR, align="right", fill=greyfill)
+c2("E11", "PASSIVO E PATRIMONIO NETTO", f=bold)
+c2("E12", "   Capitale iniziale"); c2("F12", "=F5", nf=EUR, align="right")
+c2("E13", "   Risultato d'esercizio"); c2("F13", "=C15", nf=EUR, align="right")
+c2("E14", "   Patrimonio netto", f=bold); c2("F14", "=F12+F13", f=bold, nf=EUR, align="right")
+c2("E15", "   Fondo rischi e oneri (perdita su commessa)"); c2("F15", "=C11", nf=EUR, align="right")
+c2("E16", "   Anticipi da clienti (contract liability)"); c2("F16", f"=MAX({MC}C9-{MC}C22,0)+MAX({MC}C10-{MC}C9,0)", nf=EUR, align="right")
+c2("E17", "   TOTALE PASSIVO E PN", f=bold); c2("F17", "=F14+F15+F16", f=bold, nf=EUR, align="right", fill=greyfill)
+c2("E18", "   Quadratura (Attivo − Passivo)", f=bold); c2("F18", "=F10-F17", f=bold, nf=EUR, align="right")
+
+# quadratura conditional format
+ws2.conditional_formatting.add("F18", FormulaRule(formula=["ABS(F18)<0.01"], fill=PatternFill("solid", fgColor="CDECD6"), font=Font(color=GREEN, bold=True)))
+ws2.conditional_formatting.add("F18", FormulaRule(formula=["ABS(F18)>=0.01"], fill=PatternFill("solid", fgColor="F8CBCB"), font=Font(color=RED, bold=True)))
+# EBIT colour
+ws2.conditional_formatting.add("C13", FormulaRule(formula=["C13<0"], font=Font(color=RED, bold=True)))
+ws2.conditional_formatting.add("C13", FormulaRule(formula=["C13>=0"], font=Font(color=GREEN, bold=True)))
+
+# notes
+nb2 = 20
+ws2.merge_cells(f"B{nb2}:F{nb2}"); ws2[f"B{nb2}"] = "Logica e ipotesi (didattiche):"; ws2[f"B{nb2}"].font = bold
+notes2 = [
+    "• Ricavi a CE = prezzo × % completamento (POC). La differenza tra ricavi maturati e fatturato alimenta i Lavori in corso (attivo) o gli Anticipi (passivo).",
+    "• Se la commessa è in perdita (EAC > prezzo), l'intera perdita attesa è accantonata subito (Fondo rischi) → vedi voce CE 'Accantonamento'.",
+    "• Lo Stato Patrimoniale QUADRA sempre (cella F18 = 0): è costruito in doppia partita a partire dalla commessa.",
+    "• Ipotesi semplificatrici: costi tutti pagati per cassa, nessun debito v/fornitori, nessuna imposta/onere finanziario. Scopo solo didattico.",
+    "• Prova: nel foglio 'Margine Commessa' porta i Costi a finire (C8) a 6.300 → la commessa va in perdita → EBIT negativo e nasce il Fondo rischi.",
+]
+for i, t in enumerate(notes2):
+    ws2.merge_cells(f"B{nb2+1+i}:F{nb2+1+i}"); ws2[f"B{nb2+1+i}"] = t; ws2[f"B{nb2+1+i}"].font = ital
+
 wb.save(OUT)
 print("Saved:", OUT)
