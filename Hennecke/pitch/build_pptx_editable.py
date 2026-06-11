@@ -125,7 +125,7 @@ para(tb(s, 120, 832, 1360, 24), "CONFIDENTIAL — For Board discussion only. Not
 # =====================================================================
 s = slide()
 header(s, "HENNECKE-OMS S.p.A. — Investment opportunity",
-       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 3")
+       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 4")
 # left card
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 card_title(s, 50, 125, 720, "Company at a glance", BLUE)
@@ -179,7 +179,7 @@ bullets(tfd, [
 # =====================================================================
 s = slide()
 header(s, "Financial profile 2023–2024",
-       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 3")
+       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 4")
 # left card with native chart
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 para(tb(s, 74, 140, 500, 28), "2023 vs 2024 (€ million)", size=17, color=BLUE, bold=True, first=True)
@@ -238,11 +238,66 @@ para(tb(s, 50, 866, 900, 20), "Source: Coface Full Report (filed FY2023–2024).
      size=9.5, color=MUTED, first=True)
 
 # =====================================================================
+# SLIDE 2b — CUSTOMER MAPPING (B2B end-markets)
+# =====================================================================
+s = slide()
+header(s, "Who buys from Hennecke — B2B customer map",
+       "Customers are industrial manufacturers that process polyurethane · by application", "3 / 4")
+
+def seg_card(x, y, w, h, title, desc, examples, accent=BLUE):
+    rect(s, x, y, w, h, fill=WHITE, line=BORDER)
+    rect(s, x, y, w, 42, fill=accent)
+    para(tb(s, x+16, y, w-22, 42, "m"), title, size=13, color=WHITE, bold=True, first=True)
+    tf = tb(s, x+16, y+52, w-30, h-62)
+    para(tf, desc, size=11.5, color=GRAY, italic=True, first=True, after=6)
+    if examples:
+        para(tf, [("e.g. ", True, INK, 11.5), (examples, False, INK, 11.5)], after=0)
+
+COLX = [50, 430, 810, 1190]
+R1, R2 = 168, 452
+CW, CH = 360, 252
+seg_card(COLX[0], R1, CW, CH, "1 · Building insulation — sandwich panels",
+         "Continuous & discontinuous panel makers (roofing, façades, cold rooms).",
+         "Kingspan, Isopan / Manni, Metecno, Brucha, Trimo, Tata Steel")
+seg_card(COLX[1], R1, CW, CH, "2 · Refrigeration & cold chain",
+         "Fridge / freezer & cold-room manufacturers (PU injection insulation).",
+         "Whirlpool, Electrolux, BSH, Liebherr, Haier, Arçelik; Epta, Arneg")
+seg_card(COLX[2], R1, CW, CH, "3 · Flexible foam (slabstock)",
+         "Foam producers supplying bedding & upholstered furniture.",
+         "Recticel, The Vita Group, Eurofoam, Carpenter, Orsa Foam")
+seg_card(COLX[3], R1, CW, CH, "4 · Automotive",
+         "Tier-1 makers of seating, interiors, NVH, RIM & composite parts.",
+         "Adient, Lear, Forvia, Magna, Grupo Antolin")
+seg_card(COLX[0], R2, CW, CH, "5 · Footwear",
+         "PU sole producers & footwear makers (direct injection); strong Italian districts.",
+         "Sole manufacturers & footwear brands' suppliers")
+seg_card(COLX[1], R2, CW, CH, "6 · Elastomers & composites",
+         "Technical PU parts: rollers, coatings, RIM and composite components.",
+         "Industrial manufacturers of technical PU parts")
+seg_card(COLX[2], R2, CW, CH, "7 · Pipe insulation & water heaters",
+         "District-heating pre-insulated pipes; boiler / water-heater makers.",
+         "Logstor (Kingspan), Brugg, Isoplus; Ariston, A.O. Smith")
+seg_card(COLX[3], R2, CW, CH, "8 · PU system houses (partners)",
+         "Chemical groups integrating process technology with raw-material systems.",
+         "Covestro, BASF, Dow, Huntsman")
+# bottom note band
+rect(s, 50, 718, 1500, 96, fill=BLUEBG, line=BLUELN)
+tfn = tb(s, 74, 728, 1452, 80, "m")
+para(tfn, [("Read-across: ", True, BLUE, 14),
+           ("capex-driven, cyclical buyers → the installed base drives recurring ", False, TXT, 14),
+           ("aftermarket", True, TXT, 14),
+           (" (spares, retrofit, service). Reach is Italy/Europe-centric, global via the Hennecke network (US, Asia).", False, TXT, 14)],
+     first=True)
+para(tb(s, 50, 866, 1300, 20),
+     "Illustrative customer profiles by application — not a confirmed client list (customer breakdown not disclosed in the analysed documents). Company names are sector examples.",
+     size=9.5, color=MUTED, first=True)
+
+# =====================================================================
 # SLIDE 3 — THESIS
 # =====================================================================
 s = slide()
 header(s, "Investment thesis — value, risks & recommendation",
-       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "3 / 3")
+       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "4 / 4")
 # Column A — value creation
 rect(s, 50, 125, 480, 560, fill=WHITE, line=BORDER)
 card_title(s, 50, 125, 480, "Value-creation levers", GREEN)
