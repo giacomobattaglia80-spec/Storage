@@ -182,12 +182,12 @@ header(s, "Financial profile 2023–2024",
        "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 7")
 # left card with native chart
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
-para(tb(s, 74, 140, 600, 28), "2023 · 2024 · 2-yr aggregate (€ million)", size=17, color=BLUE, bold=True, first=True)
+para(tb(s, 74, 140, 600, 28), "2023 · 2024 · 2-yr average (€ million)", size=17, color=BLUE, bold=True, first=True)
 cd = CategoryChartData()
 cd.categories = ["Revenue", "EBITDA"]
 cd.add_series("2023", (50.4, 3.6))
 cd.add_series("2024", (44.2, 1.5))
-cd.add_series("2-yr (sum)", (94.6, 5.2))
+cd.add_series("2-yr avg", (47.3, 2.6))
 gframe = s.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED, PX(70), PX(180), PX(680), PX(470), cd)
 chart = gframe.chart
 chart.has_legend = True; chart.legend.position = XL_LEGEND_POSITION.TOP
@@ -244,7 +244,7 @@ para(tb(s, 50, 866, 900, 20), "Source: Coface Full Report (filed FY2023–2024).
 # =====================================================================
 s = slide()
 header(s, "P&L recap — cost structure (2023 · 2024 · normalised)",
-       "Summing both years nets out the project-cycle WIP swing → a normalised run-rate", "3 / 7")
+       "Averaging both years nets out the project-cycle WIP swing → a normalised run-rate", "3 / 7")
 cats = ["EBITDA", "Materials", "Personnel", "Services", "Lease & rentals", "Other op. costs"]
 colA = {"EBITDA":"84BD00","Materials":"F2A100","Personnel":"D9531E","Services":"3C7DA6","Lease & rentals":"8C5A2B","Other op. costs":"BFBFBF"}
 txtA = {"EBITDA":INK,"Materials":INK,"Personnel":WHITE,"Services":WHITE,"Lease & rentals":WHITE,"Other op. costs":INK}
@@ -292,9 +292,9 @@ for c in cats:
 # callout
 rect(s, 1010, 505, 540, 150, fill=BLUEBG, line=BLUELN)
 tfc = tb(s, 1032, 515, 496, 132)
-para(tfc, [("Normalising the cycle: ", True, BLUE, 14), ("aggregating 2023+2024 nets out the WIP swing, giving a run-rate EBITDA of ", False, TXT, 14), ("~5.6% of value of production", True, TXT, 14), (" (~5.5% of revenue) — a fairer valuation base than either single year.", False, TXT, 14)], first=True, after=6)
+para(tfc, [("Normalising the cycle: ", True, BLUE, 14), ("averaging 2023+2024 nets out the WIP swing, giving a run-rate EBITDA of ", False, TXT, 14), ("~5.6% of value of production", True, TXT, 14), (" (~5.5% of revenue) — a fairer valuation base than either single year.", False, TXT, 14)], first=True, after=6)
 para(tfc, "Single years are distorted by project timing: 7.0% (2023, WIP build-up) vs 3.8% (2024, WIP unwind).", size=12, color=GRAY, italic=True)
-para(tb(s, 50, 860, 1330, 30), "2-yr = 2023+2024 aggregated (value of production €92.7m), neutralising the project-cycle WIP swing. % of value of production; may not sum to 100 due to rounding. Source: Coface reclassified P&L.", size=9.5, color=MUTED, first=True)
+para(tb(s, 50, 860, 1330, 30), "2-yr = annual average of 2023+2024 (value of production €46.3m), neutralising the project-cycle WIP swing. % of value of production; may not sum to 100 due to rounding. Source: Coface reclassified P&L.", size=9.5, color=MUTED, first=True)
 
 # =====================================================================
 # SLIDE 2b — CUSTOMER MAPPING (B2B end-markets)
