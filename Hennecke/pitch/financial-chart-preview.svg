@@ -37,6 +37,7 @@
   <text x="743" y="580" text-anchor="middle" font-size="13" fill="#1f3a5f" font-weight="bold">1.5</text>
   <text x="821" y="571" text-anchor="middle" font-size="13" fill="#7a6300" font-weight="bold">2.6</text>
   <text x="743" y="628" text-anchor="middle" font-size="15" fill="#333">EBITDA</text>
+  <text x="743" y="650" text-anchor="middle" font-size="12" fill="#2e7d4f">margin: 7.2% · 3.5% · ~5.5% avg</text>
 
   <text x="40" y="690" font-size="12" fill="#999999">2-yr avg = annual average of 2023+2024, smoothing the project-cycle WIP effect. Source: Coface reclassified P&#38;L.</text>
 </svg>

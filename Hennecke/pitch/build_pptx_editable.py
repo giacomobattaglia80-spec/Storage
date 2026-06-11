@@ -206,7 +206,7 @@ chart.category_axis.tick_labels.font.size = Pt(11)
 # margin callout
 rect(s, 74, 670, 666, 130, fill=PINKBG, line=PINKLN)
 tfm = tb(s, 94, 682, 626, 110)
-para(tfm, "EBITDA margin: 7.2% → 3.5%", size=16, color=RED, bold=True, first=True, after=5)
+para(tfm, [("EBITDA margin: 7.2% (2023) → 3.5% (2024)", False, RED, 16), ("  ·  ~5.5% normalised (2-yr avg)", False, GREEN, 16)], bold=True, first=True, after=5)
 para(tfm, [("Drop driven by the WIP swing: change in work-in-progress went from ", False, TXT),
            ("+€19.3M (2023)", True, TXT), (" to ", False, TXT), ("-€0.5M (2024)", True, TXT),
            (" — a timing effect of long projects, not structural deterioration.", False, TXT)], size=14)
