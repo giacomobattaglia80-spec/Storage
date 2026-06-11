@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Arial, Helvetica, sans-serif">
+  <!-- background -->
+  <rect x="0" y="0" width="1600" height="900" fill="#1f3a5f"/>
+  <rect x="0" y="0" width="1600" height="10" fill="#c8102e"/>
+  <!-- subtle deep panel -->
+  <rect x="0" y="640" width="1600" height="260" fill="#1a3050"/>
+
+  <!-- eyebrow -->
+  <text x="120" y="250" font-size="20" letter-spacing="3" fill="#9fb2c8">PRIVATE EQUITY &#183; PROJECT RECAP</text>
+  <rect x="120" y="272" width="90" height="5" fill="#c8102e"/>
+
+  <!-- title -->
+  <text x="118" y="380" font-size="78" font-weight="bold" fill="#ffffff">HENNECKE-OMS S.p.A.</text>
+  <text x="120" y="448" font-size="34" fill="#f2c200">Investment opportunity assessment</text>
+
+  <!-- divider -->
+  <line x1="122" y1="500" x2="900" y2="500" stroke="#3a5578" stroke-width="2"/>
+
+  <!-- descriptor -->
+  <text x="120" y="556" font-size="24" fill="#cdd8e6">Italian polyurethane-machinery hub of the Hennecke Group</text>
+  <text x="120" y="592" font-size="24" fill="#cdd8e6">(part of Br&#252;ckner Group SE) &#8212; carve-out / platform evaluation</text>
+
+  <!-- bottom band -->
+  <text x="120" y="722" font-size="22" font-weight="bold" fill="#ffffff">Presentation to the Board of Directors</text>
+  <text x="120" y="758" font-size="20" fill="#9fb2c8">June 2026</text>
+
+  <text x="1480" y="722" text-anchor="end" font-size="18" fill="#9fb2c8">Based on FY2023&#8211;2024 filed financials</text>
+  <text x="1480" y="752" text-anchor="end" font-size="18" fill="#9fb2c8">Sources: Coface &#183; Chamber of Commerce &#183; public</text>
+
+  <!-- confidential footer -->
+  <line x1="120" y1="820" x2="1480" y2="820" stroke="#2d4769"/>
+  <text x="120" y="858" font-size="14" fill="#7e93ac">CONFIDENTIAL &#8212; For Board discussion only. Not an investment recommendation; subject to specialist Due Diligence.</text>
+</svg>
