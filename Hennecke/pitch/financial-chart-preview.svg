@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="720" viewBox="0 0 1120 720" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1120" height="720" fill="#ffffff"/>
+  <text x="40" y="46" font-size="22" font-weight="bold" fill="#1f3a5f">2023 · 2024 · 2-yr aggregate (€ million)</text>
+  <text x="40" y="74" font-size="14" fill="#666666">Financial Profile chart — “Value of production” removed; 2-yr (sum) added</text>
+
+  <!-- legend -->
+  <rect x="430" y="92" width="16" height="16" fill="#9fb2c8"/><text x="452" y="105" font-size="14" fill="#444">2023</text>
+  <rect x="520" y="92" width="16" height="16" fill="#1f3a5f"/><text x="542" y="105" font-size="14" fill="#444">2024</text>
+  <rect x="610" y="92" width="16" height="16" fill="#f2c200"/><text x="632" y="105" font-size="14" fill="#444">2-yr (sum)</text>
+
+  <!-- axes: baseline y=600, scale 4.8 px/€m, max ~100 -->
+  <line x1="120" y1="600" x2="1060" y2="600" stroke="#bbbbbb"/>
+  <g font-size="12" fill="#999999">
+    <line x1="120" y1="600" x2="1060" y2="600" stroke="#e4e8ee"/>
+    <line x1="120" y1="480" x2="1060" y2="480" stroke="#e4e8ee"/><text x="112" y="484" text-anchor="end">25</text>
+    <line x1="120" y1="360" x2="1060" y2="360" stroke="#e4e8ee"/><text x="112" y="364" text-anchor="end">50</text>
+    <line x1="120" y1="240" x2="1060" y2="240" stroke="#e4e8ee"/><text x="112" y="244" text-anchor="end">75</text>
+    <line x1="120" y1="120" x2="1060" y2="120" stroke="#e4e8ee"/><text x="112" y="124" text-anchor="end">100</text>
+    <text x="112" y="604" text-anchor="end">0</text>
+  </g>
+
+  <!-- Revenue group (center ~360): 50.4->242, 44.2->212, 94.6->454 -->
+  <rect x="230" y="358" width="70" height="242" fill="#9fb2c8"/>
+  <rect x="308" y="388" width="70" height="212" fill="#1f3a5f"/>
+  <rect x="386" y="146" width="70" height="454" fill="#f2c200"/>
+  <text x="265" y="350" text-anchor="middle" font-size="13" fill="#555">50.4</text>
+  <text x="343" y="380" text-anchor="middle" font-size="13" fill="#1f3a5f" font-weight="bold">44.2</text>
+  <text x="421" y="138" text-anchor="middle" font-size="13" fill="#7a6300" font-weight="bold">94.6</text>
+  <text x="343" y="628" text-anchor="middle" font-size="15" fill="#333">Revenue</text>
+
+  <!-- EBITDA group (center ~760): 3.6->17, 1.5->7, 5.2->25 -->
+  <rect x="630" y="583" width="70" height="17" fill="#9fb2c8"/>
+  <rect x="708" y="593" width="70" height="7"  fill="#1f3a5f"/>
+  <rect x="786" y="575" width="70" height="25" fill="#f2c200"/>
+  <text x="665" y="575" text-anchor="middle" font-size="13" fill="#555">3.6</text>
+  <text x="743" y="585" text-anchor="middle" font-size="13" fill="#1f3a5f" font-weight="bold">1.5</text>
+  <text x="821" y="567" text-anchor="middle" font-size="13" fill="#7a6300" font-weight="bold">5.2</text>
+  <text x="743" y="628" text-anchor="middle" font-size="15" fill="#333">EBITDA</text>
+
+  <text x="40" y="690" font-size="12" fill="#999999">2-yr (sum) = 2023+2024 aggregated, smoothing the project-cycle WIP effect. Source: Coface reclassified P&#38;L.</text>
+</svg>
