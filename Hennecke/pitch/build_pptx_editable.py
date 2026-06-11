@@ -125,7 +125,7 @@ para(tb(s, 120, 832, 1360, 24), "CONFIDENTIAL — For Board discussion only. Not
 # =====================================================================
 s = slide()
 header(s, "HENNECKE-OMS S.p.A. — Investment opportunity",
-       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 4")
+       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 5")
 # left card
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 card_title(s, 50, 125, 720, "Company at a glance", BLUE)
@@ -179,7 +179,7 @@ bullets(tfd, [
 # =====================================================================
 s = slide()
 header(s, "Financial profile 2023–2024",
-       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 4")
+       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 5")
 # left card with native chart
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 para(tb(s, 74, 140, 500, 28), "2023 vs 2024 (€ million)", size=17, color=BLUE, bold=True, first=True)
@@ -242,7 +242,7 @@ para(tb(s, 50, 866, 900, 20), "Source: Coface Full Report (filed FY2023–2024).
 # =====================================================================
 s = slide()
 header(s, "Who buys from Hennecke — B2B customer map",
-       "Customers are industrial manufacturers that process polyurethane · by application", "3 / 4")
+       "Customers are industrial manufacturers that process polyurethane · by application", "3 / 5")
 
 def seg_card(x, y, w, h, title, desc, examples, accent=BLUE):
     rect(s, x, y, w, h, fill=WHITE, line=BORDER)
@@ -293,11 +293,55 @@ para(tb(s, 50, 866, 1300, 20),
      size=9.5, color=MUTED, first=True)
 
 # =====================================================================
+# SLIDE 2c — TAILWINDS vs HEADWINDS
+# =====================================================================
+s = slide()
+header(s, "Tailwinds vs headwinds — what drives this business",
+       "Two silos: structural supports vs structural pressures, specific to a PU capital-goods model", "4 / 5")
+# left silo — TAILWINDS
+rect(s, 50, 125, 740, 575, fill=WHITE, line=BORDER)
+card_title(s, 50, 125, 740, "TAILWINDS  ·  structural supports", GREEN)
+tft = tb(s, 74, 188, 692, 500)
+bullets(tft, [
+    [("Building energy-efficiency regulation", True), (" (EU EPBD, Green Deal, renovations) → demand for insulating sandwich panels & rigid foam.", False)],
+    [("Cold-chain & refrigeration", True), (" expansion (food, pharma) → PU-injection lines; Hennecke already equips much of global fridge output.", False)],
+    [("Blowing-agent transition", True), (" (HFC → HFO/pentane) forces a customer machine-fleet renewal cycle.", False)],
+    [("e-mobility & lightweighting", True), (" → automotive PU seating, NVH and composite parts.", False)],
+    [("Large global installed base", True), (" → recurring, high-margin aftermarket (spares, retrofit, service).", False)],
+    [("Brückner Group backing", True), (" → R&D, cross-selling, global reach and financial strength.", False)],
+    [("Historic OMS know-how", True), (" in continuous sandwich-panel & flexible-foam lines (differentiation).", False)],
+], accent=GREEN, size=14.5, color=INK, after=10)
+# right silo — HEADWINDS
+rect(s, 810, 125, 740, 575, fill=WHITE, line=BORDER)
+card_title(s, 810, 125, 740, "HEADWINDS  ·  structural pressures", RED)
+tfh = tb(s, 834, 188, 692, 500)
+bullets(tfh, [
+    [("Capex-driven cyclicality", True), (" → lumpy, volatile order intake tied to customers' investment cycle.", False)],
+    [("Long project cycles", True), (" → work-in-progress swings distort reported earnings (the 2024 margin effect).", False)],
+    [("Thin, volatile margins", True), (" & execution risk on complex turnkey orders.", False)],
+    [("Captive nature", True), (" → limited autonomy, intercompany dependence, carve-out complexity.", False)],
+    [("Input-cost volatility", True), (" (steel, energy, components) and supply-chain tensions.", False)],
+    [("FX & country risk", True), (" on export projects; qualified competition (Cannon/Afros, KraussMaffei) → price pressure.", False)],
+    [("Order concentration", True), (" on single large projects; warranty / performance-bond exposure.", False)],
+], accent=RED, size=14.5, color=INK, after=10)
+# bottom synthesis band
+rect(s, 50, 718, 1500, 96, fill=BLUEBG, line=BLUELN)
+tfs = tb(s, 74, 728, 1452, 80, "m")
+para(tfs, [("Net read:  ", True, BLUE, 14),
+           ("structurally-supported demand on a cyclical, execution-heavy model. The thesis hinges on ", False, TXT, 14),
+           ("smoothing the cycle", True, TXT, 14), (" (backlog & pricing discipline) and ", False, TXT, 14),
+           ("scaling the recurring aftermarket", True, TXT, 14),
+           (" to lift and stabilise margins.", False, TXT, 14)], first=True)
+para(tb(s, 50, 866, 1300, 20),
+     "Drivers synthesised from the dossier (sections 3, 5, 9, 11) and public industry sources.",
+     size=9.5, color=MUTED, first=True)
+
+# =====================================================================
 # SLIDE 3 — THESIS
 # =====================================================================
 s = slide()
 header(s, "Investment thesis — value, risks & recommendation",
-       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "4 / 4")
+       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "5 / 5")
 # Column A — value creation
 rect(s, 50, 125, 480, 560, fill=WHITE, line=BORDER)
 card_title(s, 50, 125, 480, "Value-creation levers", GREEN)
