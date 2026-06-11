@@ -125,7 +125,7 @@ para(tb(s, 120, 832, 1360, 24), "CONFIDENTIAL — For Board discussion only. Not
 # =====================================================================
 s = slide()
 header(s, "HENNECKE-OMS S.p.A. — Investment opportunity",
-       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 5")
+       "Italian PU-machinery hub of the Hennecke Group · potential carve-out / platform deal", "1 / 6")
 # left card
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 card_title(s, 50, 125, 720, "Company at a glance", BLUE)
@@ -179,7 +179,7 @@ bullets(tfd, [
 # =====================================================================
 s = slide()
 header(s, "Financial profile 2023–2024",
-       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 5")
+       "Cyclical & project-based business · thin margins · self-financed working capital", "2 / 6")
 # left card with native chart
 rect(s, 50, 125, 720, 700, fill=LIGHT, line=BORDER)
 para(tb(s, 74, 140, 500, 28), "2023 vs 2024 (€ million)", size=17, color=BLUE, bold=True, first=True)
@@ -242,7 +242,7 @@ para(tb(s, 50, 866, 900, 20), "Source: Coface Full Report (filed FY2023–2024).
 # =====================================================================
 s = slide()
 header(s, "Who buys from Hennecke — B2B customer map",
-       "Customers are industrial manufacturers that process polyurethane · by application", "3 / 5")
+       "Customers are industrial manufacturers that process polyurethane · by application", "3 / 6")
 
 def seg_card(x, y, w, h, title, desc, examples, accent=BLUE):
     rect(s, x, y, w, h, fill=WHITE, line=BORDER)
@@ -293,11 +293,74 @@ para(tb(s, 50, 866, 1300, 20),
      size=9.5, color=MUTED, first=True)
 
 # =====================================================================
+# SLIDE 2b2 — COMPETITOR MAP (positioning)
+# =====================================================================
+s = slide()
+header(s, "Competitor map — PU machinery landscape",
+       "Qualitative positioning of the main players in the reference sector", "4 / 6")
+# --- plot frame ---
+rect(s, 120, 158, 880, 530, fill="FBFCFD", line=BORDER)
+PX0, PX1, PY0, PY1 = 150, 970, 190, 660  # data plot bounds (px)
+def mx(xp): return PX0 + xp/100.0*(PX1-PX0)
+def my(yp): return PY1 - yp/100.0*(PY1-PY0)
+midx, midy = (PX0+PX1)/2, (PY0+PY1)/2
+rect(s, PX0, midy, PX1-PX0, 1.4, fill="C9D2DD")   # x-axis
+rect(s, midx, PY0, 1.4, PY1-PY0, fill="C9D2DD")   # y-axis
+# axis descriptors
+para(tb(s, PX0, 165, PX1-PX0, 20, "t"), "▲ Global scale & installed base", size=11.5, color=GRAY, bold=True, align="c", first=True)
+para(tb(s, PX0, 665, PX1-PX0, 20, "t"), "▼ Regional / niche reach", size=11.5, color=GRAY, bold=True, align="c", first=True)
+para(tb(s, 128, midy+6, 230, 18, "t"), "◄ Specialised PU pure-play", size=11, color=MUTED, align="l", first=True)
+para(tb(s, PX1-240, midy+6, 230, 18, "t"), "Diversified machinery group ►", size=11, color=MUTED, align="r", first=True)
+
+def bubble(name, xp, yp, color, r, tag=None, tagcolor=None):
+    cx, cy = mx(xp), my(yp)
+    sh = s.shapes.add_shape(MSO_SHAPE.OVAL, PX(cx-r), PX(cy-r), PX(2*r), PX(2*r))
+    sh.shadow.inherit = False
+    sh.fill.solid(); sh.fill.fore_color.rgb = RGBColor.from_string(color)
+    sh.line.color.rgb = RGBColor.from_string(WHITE); sh.line.width = Pt(1.5)
+    lab = tb(s, cx-90, cy+r+1, 180, 34, "t")
+    para(lab, name, size=11.5, color=INK, bold=True, align="c", first=True, after=0, spacing=0.95)
+    if tag:
+        para(lab, tag, size=9.5, color=tagcolor or MUTED, align="c", italic=True, after=0)
+
+# competitors (x%: specialised→diversified ; y%: regional→global)
+bubble("Hennecke Group", 33, 86, BLUE, 27, "PU world leader (incl. OMS)", BLUE)
+bubble("Hennecke-OMS", 21, 66, RED, 22, "TARGET", RED)
+bubble("Cannon / Afros", 31, 50, "5B7A9E", 18)
+bubble("KraussMaffei", 84, 82, "5B7A9E", 23, "RPM unit · ChemChina", MUTED)
+bubble("Kurtz Ersa", 74, 54, "5B7A9E", 16)
+bubble("Frimo", 60, 42, "5B7A9E", 16)
+bubble("Saip", 20, 26, "5B7A9E", 14)
+
+# --- right panel: key players ---
+rect(s, 1020, 158, 530, 530, fill=WHITE, line=BORDER)
+para(tb(s, 1044, 170, 480, 26), "Key players", size=16, color=BLUE, bold=True, first=True)
+rect(s, 1044, 200, 482, 1, fill=BORDER)
+tfp = tb(s, 1044, 212, 484, 460)
+players = [
+    [("Hennecke Group ", True, BLUE), ("(DE/IT) — world leader in PU process tech; includes the target Hennecke-OMS.", False, INK)],
+    [("Cannon / Afros ", True, INK), ("(Peschiera Borromeo, IT) — PU metering, foam & composites; main Italian rival.", False, INK)],
+    [("KraussMaffei ", True, INK), ("(Munich, DE) — Reaction Process Machinery unit; diversified, ChemChina-owned.", False, INK)],
+    [("Frimo Group ", True, INK), ("(Lotte, DE) — PU tooling & systems, automotive-focused.", False, INK)],
+    [("Kurtz Ersa ", True, INK), ("(Kreuzwertheim, DE) — EPS/PU foaming machinery.", False, INK)],
+    [("Saip ", True, INK), ("(Offanengo, IT) — PU plants / refrigeration insulation.", False, INK)],
+]
+for i, pl in enumerate(players):
+    para(tfp, [("•  ", False, "5B7A9E", 13)] + pl, size=13, first=(i == 0), after=13, spacing=1.0)
+
+para(tb(s, 50, 700, 1000, 24, "t"),
+     "Net read: the target sits among specialised PU pure-plays with global, group-backed reach — differentiated in sandwich-panel & flexible-foam lines.",
+     size=12.5, color=BLUE, bold=True, first=True)
+para(tb(s, 50, 866, 1300, 20),
+     "Qualitative positioning — illustrative, not to scale; consolidated competitor revenues not disclosed in the analysed documents.",
+     size=9.5, color=MUTED, first=True)
+
+# =====================================================================
 # SLIDE 2c — TAILWINDS vs HEADWINDS
 # =====================================================================
 s = slide()
 header(s, "Tailwinds vs headwinds — what drives this business",
-       "Two silos: structural supports vs structural pressures, specific to a PU capital-goods model", "4 / 5")
+       "Two silos: structural supports vs structural pressures, specific to a PU capital-goods model", "5 / 6")
 # left silo — TAILWINDS
 rect(s, 50, 125, 740, 575, fill=WHITE, line=BORDER)
 card_title(s, 50, 125, 740, "TAILWINDS  ·  structural supports", GREEN)
@@ -341,7 +404,7 @@ para(tb(s, 50, 866, 1300, 20),
 # =====================================================================
 s = slide()
 header(s, "Investment thesis — value, risks & recommendation",
-       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "5 / 5")
+       "Margin-recovery & aftermarket story on a structurally-supported PU platform", "6 / 6")
 # Column A — value creation
 rect(s, 50, 125, 480, 560, fill=WHITE, line=BORDER)
 card_title(s, 50, 125, 480, "Value-creation levers", GREEN)
